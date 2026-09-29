@@ -1,339 +1,350 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Rohit, Ph.D. | Bio-Microfluidics Lab, IIT Patna</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0284c7',
-                            600: '#0369a1',
-                            700: '#075985',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- QRCode.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-        }
-        .dark .glass-card {
-            background: rgba(30, 41, 59, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(51, 65, 85, 0.8);
-        }
-        .btn-hover {
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.25);
-        }
-    </style>
+<title>Dr. Rohit | IIT Patna</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<script src="https://cdnjs.cloudflarercode.min.js"></script>
+
+<style>
+body{
+font-family:Inter,sans-serif;
+}
+
+.glass{
+background:rgba(255,255,255,.9);
+backdrop-filter:blur(10px);
+border:1px solid rgba(0,0,0,.08);
+}
+
+.dark .glass{
+background:rgba(30,41,59,.85);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.btn{
+transition:.25s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.profile-ring{
+background:linear-gradient(135deg,#0284c7,#38bdf8);
+padding:4px;
+border-radius:9999px;
+display:inline-block;
+}
+</style>
+
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-300">
 
-    <header class="fixed top-0 left-0 right-0 z-40 px-4 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60">
-        <div class="max-w-2xl mx-auto flex justify-between items-center">
-            <span class="font-semibold text-xs md:text-sm tracking-wide text-brand-700 dark:text-brand-400 uppercase flex items-center gap-2">
-                <i class="fa-solid fa-microchip text-brand-600 dark:text-brand-400"></i>
-                <span>IIT Patna Research</span>
-            </span>
-            <div class="flex items-center space-x-2">
-                <!-- QR Code Generator Button -->
-                <button onclick="openQrModal()" class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition flex items-center gap-1.5" title="Generate QR Code for this Page">
-                    <i class="fa-solid fa-qrcode text-brand-600 dark:text-brand-400"></i>
-                    <span>QR Tool</span>
-                </button>
-                <!-- Dark Mode Toggle Button -->
-                <button id="themeToggle" class="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Toggle Theme">
-                    <i id="themeIcon" class="fa-solid fa-moon text-base"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white transition">
 
-    <main class="max-w-2xl mx-auto px-4 pt-24 pb-16 space-y-8">
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b">
+<div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
 
-        <!-- Profile Section -->
-        <section class="text-center space-y-4">
-            <div class="relative inline-block group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-sky-500 rounded-full blur opacity-50 group-hover:opacity-80 transition duration-300"></div>
-                <!-- Profile Image -->
-                <img id="profileImg" 
-     src="profile.jpg" 
-     alt="Dr. Rohit, Ph.D." 
-     class="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover object-top border-4 border-white dark:border-slate-800 shadow-2xl mx-auto">
-            </div>
+<div class="font-bold text-sky-700">
+IIT PATNA RESEARCH
+</div>
 
-            <div class="space-y-1">
-                <div class="inline-flex items-center gap-1.5 bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/60 px-3 py-1 rounded-full text-xs font-semibold text-brand-700 dark:text-brand-300 mb-1">
-                    <i class="fa-solid fa-user-graduate"></i> Postdoctoral Researcher
-                </div>
-                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                    Dr. Rohit, <span class="text-brand-600 dark:text-brand-400">Ph.D.</span>
-                </h1>
-                <p class="text-base md:text-lg font-medium text-slate-700 dark:text-slate-300">
-                    Research Associate-II
-                </p>
-                <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1.5">
-                    <i class="fa-solid fa-flask text-brand-500"></i>
-                    <span>Bio-Microfluidics Lab · Indian Institute of Technology Patna</span>
-                </p>
-            </div>
-        </section>
+<div class="flex gap-2">
 
-        <!-- Interactive Buttons -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            <!-- Bio-Microfluidics Lab -->
-            <a href="https://www.iitp.ac.in/" target="_blank" rel="noopener noreferrer" 
-               class="glass-card btn-hover p-4 rounded-xl flex items-center space-x-3.5 text-slate-800 dark:text-slate-100 shadow-sm">
-                <div class="w-11 h-11 rounded-xl bg-sky-100 dark:bg-sky-900/60 flex items-center justify-center text-sky-600 dark:text-sky-400 font-semibold text-xl flex-shrink-0">
-                    🔬
-                </div>
-                <div class="flex-1 min-w-0">
-                    <p class="text-sm font-bold truncate">Bio-Microfluidics Lab</p>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 truncate">IIT Patna Research Group</p>
-                </div>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
-            </a>
+<button onclick="openQR()"
+class="px-3 py-2 rounded-full bg-slate-200 dark:bg-slate-700 text-sm">
+<i class="fa-solid fa-qrcode"></i>
+QR Tool
+</button>
 
-            <!-- LinkedIn Profile -->
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" 
-               class="glass-card btn-hover p-4 rounded-xl flex items-center space-x-3.5 text-slate-800 dark:text-slate-100 shadow-sm">
-                <div class="w-11 h-11 rounded-xl bg-blue-100 dark:bg-blue-900/60 flex items-center justify-center text-blue-600 dark:text-blue-400 font-semibold text-xl flex-shrink-0">
-                    👔
-                </div>
-                <div class="flex-1 min-w-0">
-                    <p class="text-sm font-bold truncate">LinkedIn Profile</p>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Connect & Collaborations</p>
-                </div>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
-            </a>
+<button id="themeBtn"
+class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700">
+<i class="fa-solid fa-moon"></i>
+</button>
 
-            <!-- Google Scholar -->
-            <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" 
-               class="glass-card btn-hover p-4 rounded-xl flex items-center space-x-3.5 text-slate-800 dark:text-slate-100 shadow-sm">
-                <div class="w-11 h-11 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-semibold text-xl flex-shrink-0">
-                    🎓
-                </div>
-                <div class="flex-1 min-w-0">
-                    <p class="text-sm font-bold truncate">Google Scholar</p>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Publications & Citations</p>
-                </div>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
-            </a>
+</div>
 
-            <!-- Email Direct Link -->
-            <a href="mailto:rohit@iitp.ac.in" 
-               class="glass-card btn-hover p-4 rounded-xl flex items-center space-x-3.5 text-slate-800 dark:text-slate-100 shadow-sm">
-                <div class="w-11 h-11 rounded-xl bg-rose-100 dark:bg-rose-900/60 flex items-center justify-center text-rose-600 dark:text-rose-400 font-semibold text-xl flex-shrink-0">
-                    ✉️
-                </div>
-                <div class="flex-1 min-w-0">
-                    <p class="text-sm font-bold truncate">Email Dr. Rohit</p>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 truncate">rohit@iitp.ac.in</p>
-                </div>
-                <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
-            </a>
-        </section>
+</div>
+</header>
 
-        <!-- Biography / Overview Section -->
-        <section class="glass-card rounded-2xl p-6 shadow-sm space-y-4">
-            <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <i class="fa-solid fa-microscope text-brand-600 dark:text-brand-400"></i>
-                <span>About & Research Focus</span>
-            </h2>
-            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Dr. Rohit holds a Ph.D. and currently serves as a <strong>Research Associate-II</strong> in the Bio-Microfluidics Laboratory at the <strong>Indian Institute of Technology Patna (IIT Patna)</strong>. 
-            </p>
-            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                His research spans microscale fluid mechanics, bio-MEMS devices, single-cell analysis platforms, and point-of-care medical diagnostics. He focuses on engineering miniaturized lab-on-a-chip systems to solve critical biophysical and biomedical challenges.
-            </p>
-        </section>
+<!-- MAIN -->
+<main class="max-w-4xl mx-auto p-4">
 
-        <!-- Key Focus Areas -->
-        <section class="glass-card rounded-2xl p-6 shadow-sm space-y-4">
-            <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <i class="fa-solid fa-atom text-brand-600 dark:text-brand-400"></i>
-                <span>Research Expertise</span>
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div class="p-3 bg-slate-100/80 dark:bg-slate-800/60 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-800 dark:text-slate-200">
-                    <i class="fa-solid fa-check text-brand-500"></i> Bio-MEMS & Lab-on-a-Chip
-                </div>
-                <div class="p-3 bg-slate-100/80 dark:bg-slate-800/60 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-800 dark:text-slate-200">
-                    <i class="fa-solid fa-check text-brand-500"></i> Microfluidic Diagnostics
-                </div>
-                <div class="p-3 bg-slate-100/80 dark:bg-slate-800/60 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-800 dark:text-slate-200">
-                    <i class="fa-solid fa-check text-brand-500"></i> Single-Cell Sorting & Analysis
-                </div>
-                <div class="p-3 bg-slate-100/80 dark:bg-slate-800/60 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-800 dark:text-slate-200">
-                    <i class="fa-solid fa-check text-brand-500"></i> Point-of-Care Healthcare Tech
-                </div>
-            </div>
-        </section>
+<!-- PROFILE -->
+<section class="text-center py-10">
 
-        <!-- Deployment Instructions -->
-        <section class="p-4 rounded-2xl bg-brand-50/70 dark:bg-brand-950/40 border border-brand-200 dark:border-brand-800/50 text-xs text-brand-900 dark:text-brand-200 space-y-1.5">
-            <div class="flex items-center gap-2 font-bold text-sm">
-                <i class="fa-solid fa-rocket text-brand-600 dark:text-brand-400"></i>
-                <span>Deploying to GitHub Pages</span>
-            </div>
-            <p class="opacity-90 leading-relaxed">
-                Upload this file as <code class="bg-brand-100 dark:bg-brand-900/80 px-1.5 py-0.5 rounded font-mono">index.html</code> along with your photo named <code class="bg-brand-100 dark:bg-brand-900/80 px-1.5 py-0.5 rounded font-mono">Rohit.jpg</code> to your repository. Enable GitHub Pages in <strong>Settings → Pages</strong> to get your live website URL.
-            </p>
-        </section>
-    </main>
+<div style="margin-top:40px;text-align:center;">
+<img
+src="profile.jpg"
+alt="Profile"
+style="
+width:300px;
+height:auto;
+border:5px solid red;
+"
+>
+</div>
 
-    <!-- QR Code Generator Modal -->
-    <div id="qrModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-sm w-full p-6 shadow-2xl space-y-5 border border-slate-200 dark:border-slate-700">
-            <div class="flex justify-between items-center">
-                <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <i class="fa-solid fa-qrcode text-brand-500"></i> Generate Printable QR Code
-                </h3>
-                <button onclick="closeQrModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
+<div class="mt-6">
 
-            <p class="text-xs text-slate-500 dark:text-slate-400">
-                Paste your live GitHub Pages link to generate a high-definition QR code for posters, business cards, or conference badges.
-            </p>
+<div class="inline-block px-4 py-1 rounded-full bg-sky-100 text-sky-700 text-sm font-semibold">
+Postdoctoral Researcher
+</div>
 
-            <div class="space-y-2">
-                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Target Web URL</label>
-                <input type="url" id="qrUrlInput" value="https://yourusername.github.io/profile/" 
-                       class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-brand-500 outline-none font-mono">
-            </div>
+<h1 class="text-4xl font-extrabold mt-4">
+Dr. Rohit, Ph.D.
+</h1>
 
-            <!-- QR Code Box -->
-            <div class="flex justify-center p-4 bg-white rounded-xl border border-slate-200 shadow-inner">
-                <div id="qrcode"></div>
-            </div>
+<p class="text-xl mt-2">
+Research Associate-II
+</p>
 
-            <div class="flex gap-2">
-                <button onclick="generateQr()" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-lg transition">
-                    Update QR
-                </button>
-                <button onclick="downloadQr()" class="flex-1 py-2.5 bg-slate-800 dark:bg-slate-700 hover:bg-slate-900 text-white text-xs font-semibold rounded-lg transition flex items-center justify-center gap-1.5">
-                    <i class="fa-solid fa-download"></i> Download
-                </button>
-            </div>
-        </div>
-    </div>
+<p class="text-slate-500 mt-2">
+Bio-Microfluidics Lab • Indian Institute of Technology Patna
+</p>
 
-    <!-- Footer -->
-    <footer class="text-center py-6 text-xs text-slate-400 border-t border-slate-200 dark:border-slate-800">
-        <p>© <span id="year"></span> Dr. Rohit (Ph.D.) · Bio-Microfluidics Lab, IIT Patna</p>
-    </footer>
+</div>
 
-    <script>
-        // Set dynamic copyright year
-        document.getElementById('year').textContent = new Date().getFullYear();
+</section>
 
-        // Dark / Light Theme Toggle
-        const themeToggleBtn = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
+<!-- BUTTONS -->
 
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        }
+<section class="grid md:grid-cols-2 gap-4">
 
-        themeToggleBtn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            if (document.documentElement.classList.contains('dark')) {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
+<a href="https://www.iitp.ac.in"
+target="_blank"
+class="glass btn p-4 rounded-xl flex items-center gap-4">
 
-        // Interactive QR Code Generator Logic
-        let qrcodeObj = null;
+<div class="text-3xl">🔬</div>
 
-        function openQrModal() {
-            document.getElementById('qrModal').classList.remove('hidden');
-            if (!qrcodeObj) {
-                generateQr();
-            }
-        }
+<div>
+<div class="font-bold">Bio-Microfluidics Lab</div>
+<div class="text-sm text-slate-500">
+Research Group
+</div>
+</div>
 
-        function closeQrModal() {
-            document.getElementById('qrModal').classList.add('hidden');
-        }
+</a>
 
-        function generateQr() {
-            const url = document.getElementById('qrUrlInput').value.trim() || window.location.href;
-            const container = document.getElementById('qrcode');
-            container.innerHTML = '';
-            
-            qrcodeObj = new QRCode(container, {
-                text: url,
-                width: 180,
-                height: 180,
-                colorDark: "#0369a1",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
-        }
+<a href="https://scholar.google.com"
+target="_blank"
+class="glass btn p-4 rounded-xl flex items-center gap-4">
 
-        function downloadQr() {
-            const img = document.querySelector('#qrcode img');
-            const canvas = document.querySelector('#qrcode canvas');
-            
-            let imageSrc = '';
-            if (img && img.src) {
-                imageSrc = img.src;
-            } else if (canvas) {
-                imageSrc = canvas.toDataURL("image/png");
-            }
+<div class="text-3xl">🎓</div>
 
-            if (imageSrc) {
-                const link = document.createElement('a');
-                link.href = imageSrc;
-                link.download = 'Dr_Rohit_IITP_QR.png';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-        }
-    </script>
+<div>
+<div class="font-bold">Google Scholar</div>
+<div class="text-sm text-slate-500">
+Publications & Citations
+</div>
+</div>
+
+</a>
+
+<a href="https://linkedin.com"
+target="_blank"
+class="glass btn p-4 rounded-xl flex items-center gap-4">
+
+<div class="text-3xl">💼</div>
+
+<div>
+<div class="font-bold">LinkedIn</div>
+<div class="text-sm text-slate-500">
+Professional Network
+</div>
+</div>
+
+</a>
+
+<a href="https://orcid.org"
+target="_blank"
+class="glass btn p-4 rounded-xl flex items-center gap-4">
+
+<div class="text-3xl">🆔</div>
+
+<div>
+<div class="font-bold
+
+</a>
+
+<a href="mailto:rohit@iitp.ac.in"
+class="glass btn p-4 rounded-xl flex items-center gap-4 md:col-span-2">
+
+<div class="text-3xl">✉️</div>
+
+<div>
+<div class="font-bold">Email</div>
+<div class="text-sm text-slate-500">
+rohit@iitp.ac.in
+</div>
+</div>
+
+</a>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="glass rounded-2xl p-6 mt-8">
+
+<h2 class="text-2xl font-bold mb-4">
+About
+</h2>
+
+<p class="leading-relaxed">
+Dr. Rohit is a Research Associate-II at the Bio-Microfluidics Laboratory,
+Indian Institute of Technology Patna. His research focuses on
+microfluidics, bio-MEMS, lab-on-a-chip systems, droplet mechanics,
+point-of-care diagnostics, biosensors, soft materials, and biomedical
+engineering applications.
+</p>
+
+</section>
+
+<!-- RESEARCH -->
+
+<section class="glass rounded-2xl p-6 mt-8">
+
+<h2 class="text-2xl font-bold mb-4">
+Research Interests
+</h2>
+
+<div class="grid md:grid-cols-2 gap-3">
+
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg">
+Microfluidics
+</div>
+
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg">
+Bio-MEMS
+</div>
+
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg">
+Lab-on-a-Chip Systems
+</div>
+
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg">
+Point-of-Care Diagnostics
+</div>
+
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg">
+Droplet Mechanics
+</div>
+
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg">
+Biomedical Devices
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- QR MODAL -->
+
+<div id="qrModal"
+class="hidden fixed inset-0 bg-black/60 flex justify-center items-center z-50">
+
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl w-80">
+
+<div class="flex justify-between mb-4">
+
+<h3 class="font-bold">
+QR Code
+</h3>
+
+<button onclick="closeQR()">
+✕
+</button>
+
+</div>
+
+<input
+id="qrInput"
+type="text"
+value=""
+placeholder="Paste website URL"
+class="w-full border rounded p-2 text-black">
+
+<div id="qrcode"
+class="flex justify-center mt-4">
+</div>
+
+<button
+onclick="generateQR()"
+class="mt-4 w-full bg-sky-600 text-white py-2 rounded">
+
+Generate QR
+
+</button>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="text-center py-8 text-slate-500">
+
+© <span id="year"></span> Dr. Rohit • IIT Patna
+
+</footer>
+
+<script>
+
+document.getElementById("year").innerText =
+new Date().getFullYear();
+
+const themeBtn =
+document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click",()=>{
+
+document.documentElement.classList.toggle("dark");
+
+});
+
+function openQR(){
+document.getElementById("qrModal").classList.remove("hidden");
+}
+
+function closeQR(){
+document.getElementById("qrModal").classList.add("hidden");
+}
+
+function generateQR(){
+
+let url =
+document.getElementById("qrInput").value.trim();
+
+if(url===""){
+url = window.location.href;
+}
+
+document.getElementById("qrcode").innerHTML="";
+
+new QRCode(document.getElementById("qrcode"),{
+text:url,
+width:200,
+height:200
+});
+
+}
+
+</script>
+
 </body>
 </html>
